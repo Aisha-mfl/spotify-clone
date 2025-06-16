@@ -52,15 +52,15 @@ const ShowsScreen = ({ horizontal = true, itemStyle }) => {
 
             <Image source={{ uri: item.images[0]?.url }} style={[styles.image, itemStyle?.image]} />
             <View >
-                <Text marginV={1} marginH={10} weight='bold' size={15} numberOfLines={1} >{item.name}</Text>
-                <Text marginH={10} size={16} color='#a5a0a0'>
+                <Text marginV={1} marginH={5} weight='bold' size={15} numberOfLines={1} >{item.name}</Text>
+                <Text marginH={5} size={16} color='#a5a0a0'>
                     {item.publisher}
                 </Text>
-                <Text marginH={10} marginV={1} color='gray'>
+                <Text marginH={5} marginV={7} color='gray'>
                     {item.description.replace(/<[^>]*>/g, '').slice(0, 100)}...
                 </Text>
 
-                <Text marginH={10} marginV={1} size={15} color='#ffffff'>
+                <Text marginH={5} marginV={1} size={15} color='#ffffff'>
                     Total Episodes {item.total_episodes}
                 </Text>
 
@@ -88,12 +88,14 @@ export default ShowsScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        width:horizontalScale(450)
     },
     image: {
         width: horizontalScale(66),
         height: verticalScale(64),
         resizeMode: 'cover',
-        marginVertical: 10
+        marginVertical: 10,
+        marginHorizontal:10
     },
     
 });
