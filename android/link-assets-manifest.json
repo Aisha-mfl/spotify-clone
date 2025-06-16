@@ -1,0 +1,33 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/AvenirNextLTPro-Bold.otf",
+      "sha1": "ac8ad64356a006a6e701d70c3bbf3f6011f91c98"
+    },
+    {
+      "path": "src/assets/fonts/AvenirNextLTPro-BoldCn.otf",
+      "sha1": "d3ed3e81f2c54c1579d74bf4e77794ecb13d281a"
+    },
+    {
+      "path": "src/assets/fonts/AvenirNextLTPro-Demi.otf",
+      "sha1": "9f5f8199b646d5fcda786222d96bbfd618de48b8"
+    },
+    {
+      "path": "src/assets/fonts/AvenirNextLTPro-DemiCnIt.otf",
+      "sha1": "7374a422d71f4c45df2cfbf691fa41eadd0c7302"
+    },
+    {
+      "path": "src/assets/fonts/AvenirNextLTPro-MediumCn.otf",
+      "sha1": "7d08977a3de06fe0120c7d92ba4d377c6157ed16"
+    },
+    {
+      "path": "src/assets/fonts/AvenirNextLTPro-Regular.otf",
+      "sha1": "5431b8a80300b8dd7014f2f1d05c66b3f0d89f38"
+    },
+    {
+      "path": "src/assets/fonts/index.js",
+      "sha1": "bd38c12632ce94093a280e82e5687d364aef1051"
+    }
+  ]
+}
