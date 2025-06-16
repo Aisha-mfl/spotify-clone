@@ -46,7 +46,7 @@ const Libraray = () => {
         image={images.rect}
         text={'Liked Songs'}
         dec={"Playlist"}
-        extraText={`${favoriteTracks.length} favorite songs`}
+        extraText={`${favoriteTracks.length} Favorite songs`}
       />
       <Cards
         image={images.rec}
