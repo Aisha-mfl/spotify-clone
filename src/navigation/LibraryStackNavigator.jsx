@@ -1,5 +1,4 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Libraray from '../screens/Libraray';
 import Playlist from '../screens/Playlist';
 import Entypo from '@react-native-vector-icons/entypo';
 import { images } from '../assets/images';
@@ -10,6 +9,7 @@ import EpisodePlayer from '../screens/EpisodePlayer';
 import PlayView from '../screens/PlayView';
 import Ionicons from '@react-native-vector-icons/ionicons';
 import LikedSongs from '../screens/likedSongs';
+import Library from '../screens/Library';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +25,7 @@ const LibraryStackNavigator = () => {
             headerTintColor:'white'
 
         }}>
-            <Stack.Screen name="LibraryHome" component={Libraray} options={{
+            <Stack.Screen name="LibraryHome" component={Library} options={{
                 headerShown: true,
                 headerTitleStyle: {
                     color: 'white',
