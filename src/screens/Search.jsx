@@ -1,11 +1,11 @@
 import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import SearchBar from './SearchBar'
 import CardGrid from '../components/items/CardGrid'
 import PlayBar from '../components/ui/PlayBar'
 import Ionicons from '@react-native-vector-icons/ionicons';
 import Text from '../components/ui/Text'
-import { horizontalScale } from '../../utils/responsive'
+import { horizontalScale } from '../../utils/responsive';
+
 const Search = ({navigation}) => {
   return (
     <View style={styles.container}>
@@ -16,7 +16,7 @@ const Search = ({navigation}) => {
       >
         <View style={styles.innerContainer}>
           <Ionicons name="search" size={20} color="gray" />
-          <Text style={styles.placeholderText} color='black' size={15}>Artists, songs, or podcasts</Text>
+          <Text color='black' size={15}>Artists, songs, or podcasts</Text>
         </View>
       </TouchableOpacity>
       <CardGrid />
@@ -44,10 +44,5 @@ const styles = StyleSheet.create({
   innerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  placeholderText: {
-    marginLeft: 10,
-    color: 'gray',
-    fontSize: 16,
   },
 })

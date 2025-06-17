@@ -20,6 +20,7 @@ const SearchBar = ({ navigation }) => {
     }, [search]);
 
     const handleSearch = async (query) => {
+        setLoading(true);
         try {
             const data = await SearchApi(query, 'track,artist,album');
             setResult([
@@ -27,7 +28,6 @@ const SearchBar = ({ navigation }) => {
                 ...(data.artists?.items || []),
                 ...(data.albums?.items || []),
             ]);
-            setLoading(ture);
         } catch (err) {
             console.log('search failed', err.message);
         }
@@ -70,7 +70,7 @@ const SearchBar = ({ navigation }) => {
                     <Image source={{ uri: getImage(item) }} style={styles.image} />
                 )}
                 <View style={styles.textContainer}>
-                    <Text alignment='left' weight='bold'>{item.name}</Text>
+                    <Text style={styles.title} alignment='left' weight='bold'>{item.name}</Text>
                     <Text color='#494848' alignment='left'>{item.name} — {item.type}</Text>
                 </View>
             </View>
@@ -133,6 +133,12 @@ const styles = StyleSheet.create({
     },
     icon: {
         marginRight: 6,
+    },
+    input: {
+        flex: 1,
+        fontSize: 16,
+        fontWeight: '500',
+        color: '#ffffff',
     },
     resultItem: {
         padding: 12,
