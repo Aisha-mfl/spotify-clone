@@ -144,7 +144,6 @@ const styles = StyleSheet.create({
       borderRadius: 50,
       marginTop: 4,
       resizeMode: 'cover',
-
     },
     textcontainer: {
       marginVertical: verticalScale(30),

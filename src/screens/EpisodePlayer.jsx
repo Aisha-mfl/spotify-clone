@@ -1,4 +1,4 @@
-import React, { useState, useEffect, startTransition } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Image,
@@ -33,7 +33,6 @@ const EpisodePlayer = ({ route }) => {
       setLoading(true);
       try {
         const data = await getEpisodes(shows.id);
-        console.log('apis', data);
         setepisodes(data);
       } catch (error) {
         console.error('Error fetching episode data:', error);
@@ -65,22 +64,22 @@ const EpisodePlayer = ({ route }) => {
 
   const renderEpisodeItem = ({ item, index }) => (
     <TouchableOpacity
-      onPress={() => { handleEpisodes(item, index) }}
+      onPress={() => {handleEpisodes(item, index) }}
     >
 
       <View style={styles.episodeItem}>
         <Image
-          source={{ uri: item.images?.[0]?.url || 'https://via.placeholder.com/80' }}
+          source={{ uri: item.images?.[0]?.url}}
           style={styles.episodeImage}
         />
         <View style={styles.episodeInfo}>
-          <Text weight='bold' size={15} numberOfLines={1} style={styles.episodeTitle}>
+          <Text weight='bold' size={15}>
             {item.name}
           </Text>
-          <Text weight='semibold' size={14} numberOfLines={2} style={styles.episodeDescription}>
+          <Text weight='semibold' size={14} >
             {item.description.replace(/<[^>]*>/g, '')}
           </Text>
-          <Text size={12} style={styles.episodeDate}>
+          <Text size={12} color='#888' >
             {new Date(item.release_date).toLocaleDateString()} • {Math.floor(item.duration_ms / 60000)} min
           </Text>
         </View>
@@ -127,7 +126,7 @@ const EpisodePlayer = ({ route }) => {
                   name={clicked ? 'pause-circle-sharp' : 'play-circle-sharp'}
                   size={50}
                   color="#1DB954"
-                  style={{ marginLeft: 10 }}
+                  style={{ marginLeft: 70 }}
                 />
               </TouchableOpacity>
 
@@ -237,28 +236,10 @@ const styles = StyleSheet.create({
     height: 80,
     borderRadius: 6,
   },
-
   episodeInfo: {
     flex: 1,
     justifyContent: 'center',
     gap: 4,
-  },
-
-  episodeTitle: {
-    color: 'white',
-  },
-
-  episodeDescription: {
-    color: '#ccc',
-  },
-
-  episodeDate: {
-    color: '#888',
-  },
-
-  episodeMenuIcon: {
-    marginLeft: 8,
-    marginTop: 4,
   },
 
 });

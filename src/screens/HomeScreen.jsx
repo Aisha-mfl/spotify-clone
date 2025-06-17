@@ -9,13 +9,12 @@ import Text from '../components/ui/Text'
 import { horizontalScale, verticalScale } from '../../utils/responsive'
 
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = () => {
   return (
     <>
       <ScrollView contentContainerStyle={{ backgroundColor: '#111111' }}>
         <View style={styles.container}>
           <List />
-
           <View style={styles.reviewcontiner}>
             <Image source={images.review} style={styles.image} />
             <View style={styles.textContainer}>
