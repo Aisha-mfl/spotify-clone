@@ -1,4 +1,4 @@
-import { Alert, Image, StyleSheet,  TouchableOpacity, View } from 'react-native';
+import { Alert, Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native-gesture-handler';
 import { trackIds } from '../../data/songs';
@@ -16,6 +16,7 @@ const Songs = () => {
     useEffect(() => {
         const fetchTracks = async () => {
             const tracksData = await getMultipleTracks(trackIds);
+            console.log("track", tracksData);
             setTracks(tracksData);
         };
         fetchTracks();
@@ -27,10 +28,9 @@ const Songs = () => {
         <TouchableOpacity style={styles.trackItem}
             onPress={() =>
                 navigation.navigate('playView', {
-                    track: {
-                        ...item,
-                        preview_url: 'https://p.scdn.co/mp3-preview/e2e03acfd38d7cfa2baa924e0e9c7a80f9b49137?cid=8897482848704f2a8f8d7c79726a70d4'
-                    }
+                    tracks: [item],  
+                    index: 0,
+                    type: 'track'
                 })
             }
         >
@@ -43,7 +43,7 @@ const Songs = () => {
             </View>
         </TouchableOpacity>
     );
-    
+
 
 
     return (
@@ -80,3 +80,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 5,
     },
 });
+// , {
+//                     track: {
+//                         ...item,
+//                         preview_url: 'https://p.scdn.co/mp3-preview/e2e03acfd38d7cfa2baa924e0e9c7a80f9b49137?cid=8897482848704f2a8f8d7c79726a70d4'
+//                     }
+//                 }

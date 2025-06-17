@@ -10,22 +10,19 @@ import TrackPlayer, { Event, State, usePlaybackState, useProgress } from 'react-
 import Text from '../components/ui/Text';
 import { horizontalScale, verticalScale } from '../../utils/responsive';
 import { formatTime } from '../../utils/helpers';
-import { playNextTrack, playPreviousTrack } from '../models/Tracks';
+import { playNextTrack, playPreviousTrack, Track } from '../models/Tracks';
 import { addFavorite, removefavorite } from '../../store/favorite';
 
 
 
 const PlayView = ({ route, navigation }) => {
-    const { track, tracks } = route.params || {};
     const currentTrack = useSelector(state => state.player.currTrack);
-    const activeTrack = track || tracks || currentTrack;
-    console.log('id',activeTrack);
+    const activeTrack = currentTrack;
     const dispatch = useDispatch();
     const playbackState = usePlaybackState();
     const { position, duration } = useProgress(200);
     const favSongid = useSelector(state => state.favorites.ids);
     const songisFav = favSongid.includes(activeTrack);
-    console.log('fav', songisFav);
 
     const cahngesongStatusHandler = () => {
         if (songisFav) {
@@ -35,6 +32,20 @@ const PlayView = ({ route, navigation }) => {
             dispatch(addFavorite({ id: activeTrack }))
         }
     }
+    useEffect(() => {
+        if (route.params?.tracks && Array.isArray(route.params.tracks)) {
+            const currentTrack = route.params.tracks[0];
+            const artwork = currentTrack.album?.images?.[0]?.url || currentTrack.artwork;
+            Track({
+                track: currentTrack,
+                index: 0,
+                allTracks: route.params.tracks,
+                artworkImage: artwork,
+                type: route.params.type || 'song'
+            });
+        }
+    }, []);
+
 
     useEffect(() => {
         const listener = TrackPlayer.addEventListener(
