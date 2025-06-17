@@ -10,19 +10,13 @@ const AuthRedux = createSlice({
 
   reducers: {
     authenticate: (state, action) => {
-      state.token = action.payload.token;
-    //   state.userId = action.payload.userId;
-    //   state.email = action.payload.email;
-    //   state.username = action.payload.username;      
+      state.token = action.payload.token;     
       state.isAuthenticated = true;
       AsyncStorage.setItem('token', action.payload);
     },
-    // setUser: (state ,action ) => {
-    //   state.username = action.payload;
-    // },
+    
     logout: (state, action) => {
       state.token = null;
-    //   (state.userId === '' && state.username === '')
       console.log('ACTION', state.token);
       state.isAuthenticated = false;
       AsyncStorage.removeItem('token');

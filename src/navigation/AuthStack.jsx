@@ -76,6 +76,7 @@ import TrackPlayer, {
     useTrackPlayerEvents,
 } from "react-native-track-player";
 import { playNext } from "../../store/Player";
+import { Alert } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
@@ -137,7 +138,7 @@ export const MainNavigation = () => {
                         progressUpdateEventInterval: 2,
                     });
                 } catch (error) {
-                    console.error("Error setting up TrackPlayer:", error);
+                    Alert.alert("The player has already been initialized via setupPlayer.")
                 }
             }
         };
