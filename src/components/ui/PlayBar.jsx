@@ -65,9 +65,9 @@ const PlayBar = () => {
                                 style={styles.image}
                             />
                             <View style={styles.textContainer}>
-                                <Text size={15} weight='bold' marginV={2}>
+                                <Text size={14} weight='bold' marginV={2}>
                                     {currentTrack.title}
-                                    <Text size={13} color='#B3B3B3'> • {currentTrack.artist}</Text>
+                                    <Text size={12} color='#B3B3B3'> • {currentTrack.artist}</Text>
                                 </Text>
                                 <View style={styles.beatsPillContainer}>
                                     <Image style={styles.beatsIcon} source={images.play1} />

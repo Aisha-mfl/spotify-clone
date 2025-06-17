@@ -126,7 +126,7 @@ const EpisodePlayer = ({ route }) => {
                   name={clicked ? 'pause-circle-sharp' : 'play-circle-sharp'}
                   size={50}
                   color="#1DB954"
-                  style={{ marginLeft: 70 }}
+                  style={{ marginLeft: 60 }}
                 />
               </TouchableOpacity>
 
