@@ -58,15 +58,10 @@ const ArtistAlbumList = ({ route }) => {
       <Image source={{ uri: item.images[0]?.url }} style={styles.albumimage} />
       <View style={styles.trackInfo}>
         <Text weight='bold' size={15}>{item.name}</Text>
-        <Text weight='semibold' size={17}>
+        <Text size={13}>
           {item.artists.map(artist => artist.name).join(', ')}
         </Text>
-        <Text style={styles.releaseDate}>{item.release_date}</Text>
-        <Entypo
-          name='dots-three-horizontal'
-          size={24}
-          color="white"
-        />
+        <Text color='#ccc'>{item.release_date}</Text>
       </View>
     </TouchableOpacity>
   );
