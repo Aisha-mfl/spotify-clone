@@ -100,8 +100,11 @@ export const MainNavigation = () => {
         const fetchToken = async () => {
             const storedToken = await AsyncStorage.getItem('token');
             if (storedToken) {
+                
                 dispatch(authenticate(storedToken));
             }
+            console.log('tokens',storedToken );
+            
         };
         fetchToken();
     }, []);

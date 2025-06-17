@@ -15,7 +15,7 @@ const AuthRedux = createSlice({
     //   state.email = action.payload.email;
     //   state.username = action.payload.username;      
       state.isAuthenticated = true;
-      AsyncStorage.setItem('token', action.payload.token);
+      AsyncStorage.setItem('token', action.payload);
     },
     // setUser: (state ,action ) => {
     //   state.username = action.payload;

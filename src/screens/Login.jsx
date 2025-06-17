@@ -16,6 +16,7 @@ const Login = () => {
     setAuthenticating(true);
     try {
       const result = await getAccessToken();
+      console.log('token',result);
       dispatch(authenticate(result));
     }
     catch (error) {
