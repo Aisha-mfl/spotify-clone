@@ -93,7 +93,7 @@ const Playlist = ({ route, navigation }) => {
                 color="#1DB954"
               />
             }
-            <Text size={15} color={isActive ? '#1DB954' : 'white'}>{item.name} / {album?.name}</Text>
+            <Text size={15} color={isActive ? '#1DB954' : 'white'}>{item.name} / {type === 'album' ? album?.name : playlist?.name}</Text>
           </View>
           <View style={{ flexDirection: 'row', marginVertical:3}}>
             <Image source={images.down} style={styles.downicon} />
