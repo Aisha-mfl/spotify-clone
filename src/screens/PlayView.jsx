@@ -24,14 +24,7 @@ const PlayView = ({ route, navigation }) => {
     const favSongid = useSelector(state => state.favorites.ids);
     const songisFav = favSongid.includes(activeTrack);
 
-    const cahngesongStatusHandler = () => {
-        if (songisFav) {
-            dispatch(removefavorite({ id: activeTrack }));
-        }
-        else {
-            dispatch(addFavorite({ id: activeTrack }))
-        }
-    }
+    //For Single track
     useEffect(() => {
         if (route.params?.tracks && Array.isArray(route.params.tracks)) {
             const currentTrack = route.params.tracks[0];
@@ -85,6 +78,14 @@ const PlayView = ({ route, navigation }) => {
     };
 
 
+    const cahngesongStatusHandler = () => {
+        if (songisFav) {
+            dispatch(removefavorite({ id: activeTrack }));
+        }
+        else {
+            dispatch(addFavorite({ id: activeTrack }))
+        }
+    }
 
 
     return (
@@ -98,8 +99,7 @@ const PlayView = ({ route, navigation }) => {
                     style={styles.headerIcon}
                 />
                 <Text weight='bold' size={18} alignment='center'>
-                    {activeTrack?.name || activeTrack?.title || activeTrack?.name
-                    }
+                    {activeTrack?.name || activeTrack?.title}
                 </Text>
                 <Entypo
                     name='dots-three-horizontal'
@@ -122,8 +122,7 @@ const PlayView = ({ route, navigation }) => {
 
             <View style={styles.trackInfoContainer}>
                 <Text weight='bold' size={18}>
-                    {activeTrack?.name || activeTrack?.title || activeTrack?.name
-                    }
+                    {activeTrack?.name || activeTrack?.title}
                 </Text>
                 <View style={styles.artistContainer}>
                     <Text>
@@ -182,9 +181,7 @@ const PlayView = ({ route, navigation }) => {
                         />
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() =>
-                        dispatch(playNextTrack())
-                    }
+                    <TouchableOpacity onPress={() => dispatch(playNextTrack())}
                     >
 
                         <Ionicons name="play-skip-forward-sharp" size={27} color="white" />
@@ -237,7 +234,6 @@ const styles = StyleSheet.create({
     },
     trackInfoContainer: {
         marginHorizontal: 20,
-
         marginBottom: 40,
     },
 

@@ -27,5 +27,6 @@ export const images = {
   E: require('../assets/images/icons.png'),
   player: require('../assets/images/player.png'),
   playBar: require('../assets/images/playBar.png'),
-   login: require('../assets/images/login.png'),
+  login: require('../assets/images/login.png'),
+  down: require('../assets/images/down.png'),
 };

@@ -13,12 +13,12 @@ import Entypo from '@react-native-vector-icons/entypo';
 import Ionicons from '@react-native-vector-icons/ionicons';
 import PlayBar from '../components/ui/PlayBar';
 import { useDispatch, useSelector } from 'react-redux';
-import { togglePlay } from '../../store/Player';
+import { togglePlay, currTrack } from '../../store/Player';
 import { msToMinutes } from '../../utils/helpers';
 import Text from '../components/ui/Text';
 import { horizontalScale, verticalScale } from '../../utils/responsive';
-import TrackPlayer from 'react-native-track-player';
 import { Track } from '../models/Tracks';
+import { images } from '../assets/images';
 
 const Playlist = ({ route, navigation }) => {
   const [tracks, setTracks] = useState([]);
@@ -28,8 +28,7 @@ const Playlist = ({ route, navigation }) => {
   const type = route.params?.type;
   const albumId = route.params?.albumId;
   const { playlist = {} } = route.params || {};
-
-
+  const currentTrack = useSelector(state => state.player.currTrack);
   const clicked = useSelector(state => state.player.isplaying)
   const dispatch = useDispatch();
 
@@ -79,22 +78,36 @@ const Playlist = ({ route, navigation }) => {
     });
   };
 
-  const renderTrackItem = ({ item, index }) => (
-    <TouchableOpacity
-      style={styles.trackItem}
-      onPress={() => handleTrackPress(item, index)}
-    >
-      <View style={styles.trackInfo}>
-        <Text size={16}>{item.name}</Text>
+  const renderTrackItem = ({ item, index }) => {
+    const isActive = currentTrack?.id === item.id;
+    return (
+      <TouchableOpacity
+        style={[styles.trackItem, isActive && styles.activeTrack]}
+        onPress={() => handleTrackPress(item, index)}
+      >
+        <View style={styles.trackInfo}>
+          <View style={{ flexDirection: 'row' }}>
+            {isActive &&
+              <Ionicons name='stats-chart'
+                size={15}
+                color="#1DB954"
+              />
+            }
+            <Text size={15} color={isActive ? '#1DB954' : 'white'}>{item.name} / {album?.name}</Text>
+          </View>
+          <View style={{ flexDirection: 'row', marginVertical:3}}>
+            <Image source={images.down} style={styles.downicon} />
+            <Text size={14} marginH={5}>
+              {item.artists.map(artist => artist.name).join(', ')}
+            </Text>
+          </View>
+        </View>
         <Text size={12}>
-          {item.artists.map(artist => artist.name).join(', ')}
+          {msToMinutes(item.duration_ms)}
         </Text>
-      </View>
-      <Text size={12}>
-        {msToMinutes(item.duration_ms)}
-      </Text>
-    </TouchableOpacity>
-  );
+      </TouchableOpacity>
+    );
+  }
   if (!album && !playlist) {
     return (
       <LoadingOverlay message='loading.....' />
@@ -159,8 +172,10 @@ const Playlist = ({ route, navigation }) => {
                   name={likeditem ? 'heart' : 'heart-outlined'}
                   size={26}
                   color="#1DB954"
+                  style={{ marginVertical: -2 }}
                 />
               </TouchableOpacity>
+              <Image source={images.down} />
               <Entypo
                 name='dots-three-horizontal'
                 size={24}
@@ -240,6 +255,12 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: 2
   },
+  downicon: {
+    width: horizontalScale(14),
+    height: verticalScale(14),
+    marginVertical:2
+  }
+
 });
 
 export default Playlist;
