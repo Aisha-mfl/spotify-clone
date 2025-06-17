@@ -25,25 +25,6 @@ const PlayerSlice = createSlice({
     setcurrentAlbum: (state, action) => {
       state.currentAlbum = action.payload;
     },
-
-    playNext: state => {
-      if (state.currentIndex < state.currentPlaylist.length - 1) {
-        state.currentIndex += 1;
-        state.currTrack = {
-          ...state.currentPlaylist[state.currentIndex],
-          artwork:
-            state.currentPlaylist[state.currentIndex]?.album?.images?.[0]?.url,
-        };
-      } else {
-        state.isplaying = false;
-      }
-    },
-    playPrevious: state => {
-      if (state.currentIndex > 0) {
-        state.currentIndex -= 1;
-        state.currTrack = state.currentPlaylist[state.currentIndex];
-      }
-    },
   },
 });
 

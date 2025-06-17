@@ -53,7 +53,7 @@ export const getArtistsAlbums = async artistId => {
     return response.data;
   } catch (error) {
     console.error('Error in getMultipleAlbum:', error.response.data);
-    throw error;
+   
   }
 };
 
@@ -66,7 +66,7 @@ export const getMultipleAlbum = async (ids = []) => {
     return response.data.albums;
   } catch (error) {
     console.error('Error in getMultipleAlbum:', error);
-    throw error;
+
   }
 };
 
@@ -76,7 +76,7 @@ export const getAlbumDetails = async albumId => {
     return response.data;
   } catch (error) {
     console.error('Error fetching album details:', error);
-    throw error;
+   
   }
 };
 export const getAlbumTracks = async albumId => {
@@ -85,7 +85,6 @@ export const getAlbumTracks = async albumId => {
     return response.data.items;
   } catch (error) {
     console.error('Error fetching album tracks:', error);
-    throw error;
   }
 };
 
@@ -119,7 +118,6 @@ export const getPlaylist = async playlistId => {
     return response.data;
   } catch (error) {
     console.error('Error fetching playlist:', error);
-    throw error;
   }
 };
 
@@ -135,7 +133,6 @@ export const getMultipleShows = async (ids = []) => {
     return response?.data?.shows || [];
   } catch (error) {
     console.error('Error in getMultipleShows:', error);
-    throw error;
   }
 };
 export const getEpisodes = async showId => {
@@ -149,10 +146,8 @@ export const getEpisodes = async showId => {
     return response?.data?.items || [];
   } catch (error) {
     console.error('Error in getEpisodes:', error);
-    throw error;
   }
 };
-
 
 export const fetchCategories = async (country = 'US', limit = 20) => {
   try {
@@ -165,7 +160,6 @@ export const fetchCategories = async (country = 'US', limit = 20) => {
     return response?.data?.categories?.items || [];
   } catch (error) {
     console.error('Error fetching categories:', error);
-    throw error;
   }
 };
 

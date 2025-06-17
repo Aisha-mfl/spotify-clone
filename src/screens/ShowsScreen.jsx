@@ -13,7 +13,7 @@ import { horizontalScale, verticalScale } from '../../utils/responsive';
 
 
 
-const ShowsScreen = ({ horizontal = true, itemStyle }) => {
+const ShowsScreen = ({ itemStyle }) => {
     const [shows, setshows] = useState([]);
     const navigation = useNavigation();
     const [loading, setLoading] = useState(true);
@@ -23,9 +23,8 @@ const ShowsScreen = ({ horizontal = true, itemStyle }) => {
             setLoading(true)
             try {
                 const data = await getMultipleShows(showsIds);
-                console.log('apis', data);
-                setshows(data.filter(shows => shows !== null));
-                dispatch(setShows(data.filter(shows => shows !== null)));
+                setshows(data);
+                dispatch(setShows(data));
             } catch (error) {
                 console.error('Error fetching shows:', error);
                 setshows([]);
@@ -36,6 +35,7 @@ const ShowsScreen = ({ horizontal = true, itemStyle }) => {
         };
         fetchshows();
     }, []);
+    
     if (loading) {
         return (
             <LoadingOverlay message='loading shows...' />
@@ -76,8 +76,6 @@ const ShowsScreen = ({ horizontal = true, itemStyle }) => {
                 data={shows}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.id}
-                horizontal={horizontal}
-                showsHorizontalScrollIndicator={false}
             />
         </View>
     );

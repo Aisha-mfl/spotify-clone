@@ -70,8 +70,8 @@ const SearchBar = ({ navigation }) => {
                     <Image source={{ uri: getImage(item) }} style={styles.image} />
                 )}
                 <View style={styles.textContainer}>
-                    <Text style={styles.title} alignment='left' weight='bold'>{item.name}</Text>
-                    <Text style={styles.resultText} alignment='left'>{item.name} — {item.type}</Text>
+                    <Text alignment='left' weight='bold'>{item.name}</Text>
+                    <Text color='#494848' alignment='left'>{item.name} — {item.type}</Text>
                 </View>
             </View>
         </TouchableOpacity>
@@ -134,20 +134,11 @@ const styles = StyleSheet.create({
     icon: {
         marginRight: 6,
     },
-    input: {
-        flex: 1,
-        fontSize: 16,
-        fontWeight: '500',
-        color: '#ffffff',
-    },
     resultItem: {
         padding: 12,
         borderBottomWidth: 0.5,
         borderColor: '#333',
         marginHorizontal: 16,
-    },
-    resultText: {
-        color: '#494848',
     },
     resultItem: {
         flexDirection: 'row',
