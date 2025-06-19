@@ -18,6 +18,7 @@ import { addFavorite, removefavorite } from '../../store/favorite';
 const PlayView = ({ route, navigation }) => {
     const currentTrack = useSelector(state => state.player.currTrack);
     const activeTrack = currentTrack;
+       console.log('palying',activeTrack);
     const dispatch = useDispatch();
     const playbackState = usePlaybackState();
     const { position, duration } = useProgress(200);
@@ -27,18 +28,20 @@ const PlayView = ({ route, navigation }) => {
     //For Single track
     useEffect(() => {
         if (route.params?.tracks && Array.isArray(route.params.tracks)) {
-            const currentTrack = route.params.tracks[0];
+            const trackList = route.params.tracks;
+            const selectedIndex = route.params.index || 0;
+            const currentTrack = trackList[selectedIndex];
             const artwork = currentTrack.album?.images?.[0]?.url || currentTrack.artwork;
             Track({
                 track: currentTrack,
-                index: 0,
-                allTracks: route.params.tracks,
+                index: selectedIndex,
+                allTracks: trackList,
                 artworkImage: artwork,
-                type: route.params.type || 'song'
+                type: route.params.type || 'song',
             });
         }
-    }, []);
 
+    }, []);
 
     useEffect(() => {
         const listener = TrackPlayer.addEventListener(
@@ -53,8 +56,6 @@ const PlayView = ({ route, navigation }) => {
             listener.remove();
         };
     }, []);
-
-
     const togglePlayback = async () => {
         const stateValue = playbackState?.state || playbackState;
 
@@ -86,7 +87,6 @@ const PlayView = ({ route, navigation }) => {
             dispatch(addFavorite({ id: activeTrack }))
         }
     }
-
 
     return (
         <LinearGradient colors={['#4D4D4D', '#121212', '#101010']} style={styles.linearGradient}>

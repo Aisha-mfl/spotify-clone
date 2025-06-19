@@ -19,12 +19,13 @@ export const Track = async ({
       queueType: type
     }));
     dispatch(setcurrTrack({
-      name: track?.name,
-      artist: track?.artists?.map(artist => artist.name).join(',') || track.shows?.publisher,
+      name: track?.name || track?.title,
+      artist: track.artists?.map(a => a.name).join(', ') || track.shows?.publisher || track?.artist || 'Unknown Artist',
       artwork: artworkImage,
       id: track.id,
       previewUrl: getPreviewUrl(track, type)
     }));
+
 
 
     await TrackPlayer.reset();
@@ -51,8 +52,8 @@ const getPreviewUrl = (track, type) => {
 const createTrackObject = (track, fallbackArtwork, type) => ({
   id: track.id,
   url: getPreviewUrl(track, type),
-  title: track.name,
-  artist: track.artists?.map(a => a.name).join(', ') || 'Unknown Artist' || track.shows?.publisher,
+  title: track.name || track?.title,
+  artist: track.artists?.map(a => a.name).join(', ') || track.shows?.publisher || track?.artist || 'Unknown Artist',
   artwork: track.album?.images?.[0]?.url || fallbackArtwork || track.shows?.images?.[0]?.url,
   type: type
 });
@@ -64,6 +65,7 @@ export const playNextTrack = () => async (dispatch) => {
 
     dispatch(setcurrTrack({
       id: track.id,
+      name: track.title || track.name,
       title: track.title,
       artist: track.artist || track.shows?.publisher,
       artwork: track.artwork,
@@ -82,6 +84,7 @@ export const playPreviousTrack = () => async (dispatch) => {
 
     dispatch(setcurrTrack({
       id: track.id,
+      name: track.title || track.name,
       title: track.title || track.shows?.publisher,
       artist: track.artist,
       artwork: track.artwork,

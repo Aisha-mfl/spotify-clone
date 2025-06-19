@@ -43,20 +43,11 @@ const LibraryStackNavigator = () => {
 
             }} />
             <Stack.Screen name="Playlist" component={Playlist} />
-            <Stack.Screen name="albumlist" component={ArtistAlbumList} options={{
-                headerShown: false
-            }} />
-            <Stack.Screen name="showsScreen" component={ShowsScreen} options={{
-                headerShown: false
-            }} />
-            <Stack.Screen name="EpisodeScreen" component={EpisodePlayer} options={{
-                headerShown: false,
-
-            }} />
+            <Stack.Screen name="albumlist" component={ArtistAlbumList}  />
+            <Stack.Screen name="showsScreen" component={ShowsScreen} />
+            <Stack.Screen name="EpisodeScreen" component={EpisodePlayer} />
             <Stack.Screen name="likedscreen" component={LikedSongs} options={{
-                headerShown: true,
                 title:'Your Liked Songs'
-
             }} />
             
 
