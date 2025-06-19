@@ -93,6 +93,7 @@ const Playlist = ({ route, navigation }) => {
                 color="#1DB954"
               />
             }
+            
             <Text size={14} color={isActive ? '#1DB954' : 'white'}>{item.name} / {type === 'album' ? album?.name : playlist?.name}</Text>
           </View>
           <View style={{ flexDirection: 'row', marginVertical:3}}>

@@ -3,9 +3,9 @@ import LinearGradient from 'react-native-linear-gradient';
 import Entypo from '@react-native-vector-icons/entypo';
 import Ionicons from '@react-native-vector-icons/ionicons';
 import { images } from '../assets/images';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { playNext, playPrevious, togglePlay } from '../../store/Player';
+import { togglePlay } from '../../store/Player';
 import TrackPlayer, { Event, State, usePlaybackState, useProgress } from 'react-native-track-player';
 import Text from '../components/ui/Text';
 import { horizontalScale, verticalScale } from '../../utils/responsive';
@@ -25,7 +25,6 @@ const PlayView = ({ route, navigation }) => {
     const favSongid = useSelector(state => state.favorites.ids);
     const songisFav = favSongid.includes(activeTrack);
 
-    //For Single track
     useEffect(() => {
         if (route.params?.tracks && Array.isArray(route.params.tracks)) {
             const trackList = route.params.tracks;
@@ -49,7 +48,6 @@ const PlayView = ({ route, navigation }) => {
             async ({ track }) => {
                 console.log('curr', track);
                 dispatch(setcurrTrack(track));
-
             }
         );
         return () => {
@@ -118,8 +116,6 @@ const PlayView = ({ route, navigation }) => {
                 />
 
             </View>
-
-
             <View style={styles.trackInfoContainer}>
                 <Text weight='bold' size={18}>
                     {activeTrack?.name || activeTrack?.title}
@@ -180,10 +176,7 @@ const PlayView = ({ route, navigation }) => {
                             color="#ffffff"
                         />
                     </TouchableOpacity>
-
-                    <TouchableOpacity onPress={() => dispatch(playNextTrack())}
-                    >
-
+                    <TouchableOpacity onPress={() => dispatch(playNextTrack())}>
                         <Ionicons name="play-skip-forward-sharp" size={27} color="white" />
                     </TouchableOpacity>
 

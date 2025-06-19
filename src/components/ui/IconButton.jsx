@@ -7,7 +7,7 @@ const IconButton = ({ onPress, children, isActive }) => {
     return (
         <View style={[styles.buttonContainer, isActive && styles.activeButtonContainer]}>
             <TouchableOpacity onPress={onPress} style={styles.button}>
-                <Text size={11} color={isActive ? 'black' : 'white'}>{children}</Text>
+                <Text size={11} weight='bold' color={isActive ? 'black' : 'white'}>{children}</Text>
 
             </TouchableOpacity>
         </View>
