@@ -51,8 +51,8 @@ const SongCards = ({ horizontal = true, itemStyle }) => {
 
             <Image source={{ uri: item.images[0]?.url }} style={[styles.image, itemStyle?.image]} />
             <View >
-                <Text marginV={1} marginH={3} style={[styles.text, itemStyle?.text]} size={14} >{item.name}</Text>
-                <Text  marginH={3} style={[styles.artist, itemStyle?.artistText]} color='gray'>
+                <Text marginV={1} marginH={3} style={[styles.text, itemStyle?.text]} size={12} >{item.name}</Text>
+                <Text  marginH={3} size={10} style={[styles.artist, itemStyle?.artistText]} color='gray'>
                     {item.artists.map(artist => artist.name).join(', ')}
                 </Text>
             </View>

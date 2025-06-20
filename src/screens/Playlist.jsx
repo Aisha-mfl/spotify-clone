@@ -94,11 +94,11 @@ const Playlist = ({ route, navigation }) => {
               />
             }
             
-            <Text size={14} color={isActive ? '#1DB954' : 'white'}>{item.name} / {type === 'album' ? album?.name : playlist?.name}</Text>
+            <Text size={13} color={isActive ? '#1DB954' : 'white'}>{item.name} / {type === 'album' ? album?.name : playlist?.name}</Text>
           </View>
           <View style={{ flexDirection: 'row', marginVertical:3}}>
             <Image source={images.down} style={styles.downicon} />
-            <Text size={14} marginH={5}>
+            <Text size={12} marginH={5}>
               {item.artists.map(artist => artist.name).join(', ')}
             </Text>
           </View>
@@ -138,7 +138,7 @@ const Playlist = ({ route, navigation }) => {
             />
           </View>
           <View style={styles.albumInfo}>
-            <Text weight='bold' size={18}>{type === 'album' ? album?.name : playlist?.name}</Text>
+            <Text weight='bold' size={15}>{type === 'album' ? album?.name : playlist?.name}</Text>
             <Text size={16}>
               {type === 'album'
                 ? album?.artists.map(artist => artist.name).join(', ')
@@ -149,7 +149,7 @@ const Playlist = ({ route, navigation }) => {
             }
             <View style={{ flexDirection: 'row' }}>
               {album && album.release_date ? (
-                <Text>
+                <Text size={10}>
                   {album.release_date.split('-')[0]} • {album.total_tracks || playlistTracks.length} songs
                 </Text>
               ) : (
@@ -162,7 +162,7 @@ const Playlist = ({ route, navigation }) => {
                   name={clicked ? 'pause-circle-sharp' : 'play-circle-sharp'}
                   size={50}
                   color="#1DB954"
-                  style={{ marginLeft: moderateScale(220) }}
+                  style={{ marginLeft: moderateScale(200) }}
                 />
               </TouchableOpacity>
 
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
   },
   header: {
     marginHorizontal: 20,
-    marginTop: 60,
+    marginTop: verticalScale(50),
   },
   headerIcon: {
     width: 24,
@@ -257,8 +257,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 2
   },
   downicon: {
-    width: horizontalScale(14),
-    height: verticalScale(14),
+    width: horizontalScale(17),
+    height: verticalScale(17),
     marginVertical:2
   }
 

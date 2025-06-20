@@ -2,7 +2,7 @@ import { StyleSheet, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { images } from '../../assets/images';
 import Text from './Text';
-import { horizontalScale, verticalScale } from '../../../utils/responsive';
+import { horizontalScale, moderateScale, verticalScale } from '../../../utils/responsive';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 
@@ -15,10 +15,10 @@ export default function Cards({ image, text, dec, favoriteCount, extraText }) {
             <View style={styles.container}>
                 <Image source={image} style={styles.rec} />
                 <View style={styles.titleContainer}>
-                    <Text weight='bold' size={15}>{text}</Text>
+                    <Text weight='bold' >{text}</Text>
                     <View style={styles.textContainer}>
                         <Image source={images.pin} style={styles.icon} />
-                        <Text color='#B3B3B3'>
+                        <Text color='#B3B3B3' size={10} marginV={3}>
                             {dec}{favoriteCount !== undefined ? ` • ${favoriteCount}` : ''}
                         </Text>
                     </View>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     },
     icon: {
         marginRight: 5,
-        marginTop: 5
+        marginTop: 5,
     },
     scrollContent: {
         paddingHorizontal: 5,

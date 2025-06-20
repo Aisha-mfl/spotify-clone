@@ -36,8 +36,8 @@ const Songs = () => {
         >
             <View style={styles.item}>
                 <Image source={{ uri: item.album.images[0]?.url }} style={styles.image} />
-                <Text color='#B3B3B3' marginV={3} numberOfLines={1}>{item.name}</Text>
-                <Text size={12} color='#B3B3B3' numberOfLines={1}>
+                <Text  size={12} marginV={3} numberOfLines={1}>{item.name}</Text>
+                <Text size={10} color='#B3B3B3' numberOfLines={1}>
                     {item.artists.map(artist => artist.name).join(', ')}
                 </Text>
             </View>

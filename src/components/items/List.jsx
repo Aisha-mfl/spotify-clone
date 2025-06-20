@@ -51,7 +51,7 @@ const List = ({horizontal=true ,style, itemStyle}) => {
 
             <Image source={{ uri: item.images[0]?.url }} style={[styles.image, itemStyle?.image]} />
             <View style={[itemStyle?.textcontainer]}>
-            <Text size={14} alignment='center' marginV={6} style={[itemStyle?.text]}>{item.name}</Text>
+            <Text size={12} alignment='center' marginV={6} style={[itemStyle?.text]}>{item.name}</Text>
             </View>
         </TouchableOpacity>
 

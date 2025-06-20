@@ -124,7 +124,7 @@ export default SearchBar;
 const styles = StyleSheet.create({
     wrapper: {
         flex: 1,
-        paddingTop: 70,
+        paddingTop: 20,
         backgroundColor: '#121212',
     },
     row: {
@@ -157,14 +157,14 @@ const styles = StyleSheet.create({
     resultItem: {
         padding: 12,
         borderBottomWidth: 0.5,
-        borderColor: '#333',
+        borderColor: '#5c5b5b',
         marginHorizontal: 16,
     },
     resultItem: {
         flexDirection: 'row',
         alignItems: 'center',
         padding: 12,
-        marginHorizontal: 16,
+       
     },
     image: {
         width: 48,

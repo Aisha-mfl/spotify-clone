@@ -52,11 +52,11 @@ const ShowsScreen = ({ itemStyle }) => {
 
             <Image source={{ uri: item.images[0]?.url }} style={[styles.image, itemStyle?.image]} />
             <View >
-                <Text marginV={1} marginH={5} weight='bold' size={15} numberOfLines={1} >{item.name}</Text>
-                <Text marginH={5} size={16} color='#a5a0a0'>
+                <Text marginV={1} marginH={5} weight='bold' size={12} numberOfLines={1} >{item.name}</Text>
+                <Text marginH={5} size={14} color='#a5a0a0'>
                     {item.publisher}
                 </Text>
-                <Text marginH={5} marginV={7} color='gray'>
+                <Text marginH={5} marginV={5} color='gray' size={10}>
                     {item.description.replace(/<[^>]*>/g, '').slice(0, 100)}...
                 </Text>
 

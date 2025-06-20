@@ -49,9 +49,9 @@ const LibraryPlayList = () => {
                     <Image source={{ uri: item.images[0].url }} style={styles.image} />
                 )}
                 <View style={styles.titleContainer}>
-                    <Text size={18} weight='bold' marginV={5}>{item.name}</Text>
+                    <Text weight='bold' marginV={5}>{item.name}</Text>
                     <Text size={12} color='#B3B3B3'>{item.description || 'No description'}</Text>
-                    <Text color='#B3B3B3'>
+                    <Text color='#B3B3B3' size={12}>
                         {item.tracks?.total || 0} tracks
                     </Text>
                 </View>
@@ -77,7 +77,7 @@ export default LibraryPlayList;
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        marginHorizontal: 10,
+        marginHorizontal: 12,
         marginVertical: 8,
         gap: 15
     },
@@ -88,16 +88,14 @@ const styles = StyleSheet.create({
         marginTop: 4,
         resizeMode: 'cover',
     },
-    titleContainer: {
-        justifyContent: 'center',
-    },
+    
     icon: {
         marginRight: 5,
         marginTop: 5
     },
     titleContainer: {
         flex: 1,
-        marginLeft: 16,
+        
         justifyContent: 'center',
     },
     listContent: {

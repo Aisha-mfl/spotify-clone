@@ -33,7 +33,7 @@ const CardGrid = () => {
             style={[styles.card, { backgroundColor: getRandomColor() }]}
         // onPress={() => navigation.navigate('CategoryPlaylists', { categoryId: item.id })}
         >
-            <Text weight='bold' size={16} marginV={15} marginH={15}>{item.name}</Text>
+            <Text weight='bold' size={13} marginV={15} marginH={15}>{item.name}</Text>
             <View style={styles.imageContainer}>
                 <Image
                     source={{ uri: item.icons[0]?.url }}
@@ -70,13 +70,13 @@ const styles = StyleSheet.create({
     },
     columnWrapper: {
         justifyContent: 'space-between',
-        marginBottom: verticalScale(12),
+        marginBottom: verticalScale(10),
     },
     card: {
         flex: 1,
         marginHorizontal: horizontalScale(6),
-        width: horizontalScale(192),
-        height: verticalScale(109),
+        width: horizontalScale(19),
+        height: verticalScale(102),
         borderRadius: moderateScale(6),
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -90,10 +90,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     categoryImage: {
-        width: moderateScale(65),
-        height: moderateScale(65),
+        width: moderateScale(60),
+        height: moderateScale(60),
         position: 'absolute',
-        bottom: 5,
+        bottom:-0,
         right: -10,
         transform: [{ rotate: '20deg' }],
         borderRadius: 4,

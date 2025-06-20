@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeStackNavigator from './HomeStackNavigator';
 import LibraryStackNavigator from './LibraryStackNavigator';
 import SearchStackNavigation from './SearchStackNavigation';
+import { horizontalScale } from '../../utils/responsive';
 
 
 
@@ -16,7 +17,7 @@ const Tabnavigator = () => {
                 headerShown: true,
                 tabBarActiveTintColor: '#ffffff',
                 tabBarInactiveTintColor: '#111111',
-                tabBarStyle: { backgroundColor: '#111111' },
+                tabBarStyle: { backgroundColor: '#111111' , height:horizontalScale(80) , paddingTop:10},
                 tabBarLabelStyle: { fontSize: 13, color: 'white' },
 
                 tabBarIcon: ({ size, focused }) => {

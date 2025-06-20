@@ -6,7 +6,7 @@ import SongCards from '../components/items/SongCards'
 import Songs from '../components/items/Songs'
 import PlayBar from '../components/ui/PlayBar'
 import Text from '../components/ui/Text'
-import { horizontalScale, verticalScale } from '../../utils/responsive'
+import { horizontalScale, moderateScale, verticalScale } from '../../utils/responsive'
 
 
 const HomeScreen = () => {
@@ -18,8 +18,8 @@ const HomeScreen = () => {
           <View style={styles.reviewcontiner}>
             <Image source={images.review} style={styles.image} />
             <View style={styles.textContainer}>
-              <Text style={styles.text} size={11} color='#9C9C9C'>#SPOTIFYWRAPPED</Text>
-              <Text style={styles.texts} weight='bold' size={22}>Your 2021 in review</Text>
+              <Text style={styles.text} size={10} color='#9C9C9C'>#SPOTIFYWRAPPED</Text>
+              <Text style={styles.texts} weight='bold' size={moderateScale(20)}>Your 2021 in review</Text>
             </View>
           </View>
           <SongCards />
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#111111',
-    
+    paddingTop:10
 
   },
   iconsContainer: {

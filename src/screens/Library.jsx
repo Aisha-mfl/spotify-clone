@@ -10,7 +10,7 @@ import PlayList from '../components/items/LibraryPlayList'
 import PlayBar from '../components/ui/PlayBar'
 import Text from '../components/ui/Text'
 import ShowsScreen from './ShowsScreen'
-import { horizontalScale, verticalScale } from '../../utils/responsive'
+import { horizontalScale, moderateScale, verticalScale } from '../../utils/responsive'
 
 
 const Library = () => {
@@ -37,7 +37,7 @@ const Library = () => {
 
       <View style={styles.recnet}>
         <Image style={styles.arrow} source={images.arrow} />
-        <Text style={styles.text} weight='bold' size={15}>Recently Played</Text>
+        <Text style={styles.text} weight='bold' size={moderateScale(10)}>Recently Played</Text>
         <View style={styles.icon}>
           <Image style={styles.menu} source={images.menu} />
         </View>
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   },
   recnet: {
     flexDirection: 'row',
-    marginVertical: verticalScale(25)
+  
   },
   arrow: {
     width: horizontalScale(17),
@@ -122,12 +122,13 @@ const styles = StyleSheet.create({
     marginHorizontal: horizontalScale(8),
     marginVertical: verticalScale(5),
     image: {
-      width: horizontalScale(66),
-      height: verticalScale(64),
-      borderRadius: 50,
+      width: horizontalScale(80),
+      height: verticalScale(80),
+      borderRadius: 90,
       marginTop: 4,
       resizeMode: 'cover',
     },
+    
   },
 
   artistContainer: {
@@ -137,18 +138,19 @@ const styles = StyleSheet.create({
   },
   artistItem: {
     flexDirection: 'row',
-    marginHorizontal: horizontalScale(8),
+    marginHorizontal: horizontalScale(10),
     gap: 10,
     image: {
-      width: horizontalScale(66),
-      height: verticalScale(64),
-      borderRadius: 50,
+      width: horizontalScale(80),
+      height: verticalScale(80),
+      borderRadius: 80,
       marginTop: 4,
       resizeMode: 'cover',
     },
     textcontainer: {
       marginVertical: verticalScale(30),
       marginHorizontal: horizontalScale(5),
+      
     },
 
   },

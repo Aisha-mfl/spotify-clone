@@ -16,14 +16,16 @@ const HomeStackNavigator = () => (
        
         headerTitleStyle: {
             color: 'white',
-            fontSize: 24,
+            fontSize: 20,
             
         },
          headerStyle: {
                 backgroundColor: '#111111', 
+                
             },
             contentStyle: {
                 backgroundColor: '#111111', 
+                
             },
         
     }}>

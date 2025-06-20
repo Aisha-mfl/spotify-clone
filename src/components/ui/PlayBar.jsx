@@ -65,13 +65,13 @@ const PlayBar = () => {
                                 style={styles.image}
                             />
                             <View style={styles.textContainer}>
-                                <Text size={moderateScale(14)} weight='bold' marginV={2}>
+                                <Text size={moderateScale(12)} weight='bold' marginV={2}>
                                     {currentTrack.title}
-                                    <Text size={moderateScale(12)} color='#B3B3B3'> • {currentTrack.artist}</Text>
+                                    <Text size={moderateScale(10)} color='#B3B3B3'> • {currentTrack.artist}</Text>
                                 </Text>
                                 <View style={styles.beatsPillContainer}>
                                     <Image style={styles.beatsIcon} source={images.play1} />
-                                    <Text size={moderateScale(11)
+                                    <Text size={moderateScale(9)
                                     } weight='bold' color='#1DB954'>BEATSPILL+</Text>
                                 </View>
                             </View>
@@ -86,7 +86,7 @@ const PlayBar = () => {
                                     name={play ? 'pause' : 'play'}
                                     size={30}
                                     color='white'
-                                    style={styles.controlIcon}
+
                                 />
                             </TouchableOpacity>
                         </View>
@@ -117,15 +117,15 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignSelf: 'center',
         backgroundColor: '#550A1C',
-        height:verticalScale(59),
-        width: horizontalScale(410),
+        height: verticalScale(70),
+        width: horizontalScale(430),
         borderRadius: 6,
-        paddingVertical:10,
+        paddingVertical: 10,
         marginHorizontal: 5,
         paddingHorizontal: 20,
         marginVertical: -5
     },
-    leftSection: { 
+    leftSection: {
         flexDirection: 'row',
         alignItems: 'center',
         flex: 1,
@@ -151,9 +151,7 @@ const styles = StyleSheet.create({
         width: horizontalScale(18),
         height: verticalScale(18),
     },
-    controlIcon: {
-        marginLeft: 8,
-    },
+
     sliderBackground: {
         height: horizontalScale(4),
         backgroundColor: '#702F3D',
@@ -161,6 +159,9 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         marginTop: 3,
         marginHorizontal: 10,
+    },
+    controlIcon: {
+        marginVertical: 10
     },
 
     sliderProgress: {

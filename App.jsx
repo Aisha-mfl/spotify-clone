@@ -29,13 +29,13 @@ const App = () => {
  
   return (
     <>
-      <StatusBar style='light' barStyle="light-content" translucent />
+      <StatusBar  barStyle="light-content"  />
       <GestureHandlerRootView style={{ flex: 1 }}>
         <Provider store={store} >
           <NavigationContainer>
-            <View style={styles.container}>
+           
               <MainNavigation />
-            </View>
+            
           </NavigationContainer>
         </Provider>
       </GestureHandlerRootView>
@@ -46,9 +46,3 @@ const App = () => {
 
 export default App;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000000',
-  },
-})

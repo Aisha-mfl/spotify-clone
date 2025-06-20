@@ -206,11 +206,11 @@ const PlayView = ({ route, navigation }) => {
                 <View style={styles.bottomControls}>
                     <View style={styles.beatsPill}>
                         <Image style={styles.beatsIcon} source={images.play1} />
-                        <Text weight='regular'>BEATSPILL+</Text>
+                        <Text weight='regular' size={10}>BEATSPILL+</Text>
                     </View>
                     <View style={styles.actionIcons}>
-                        <Ionicons name='share-outline' size={24} color="white" />
-                        <Entypo name='list' size={24} color="white" />
+                        <Ionicons name='share-outline' size={20} color="white" />
+                        <Entypo name='list' size={20} color="white" />
                     </View>
                 </View>
             </View>
@@ -224,11 +224,10 @@ const styles = StyleSheet.create({
     linearGradient: {
         flex: 1,
         paddingHorizontal: 15,
-        paddingVertical: 0
     },
     header: {
-        marginTop: 80,
-        marginBottom: 60,
+        marginTop: 40,
+        marginBottom: 50,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -242,8 +241,8 @@ const styles = StyleSheet.create({
         marginBottom: 30,
     },
     image: {
-        width: horizontalScale(380),
-        height: verticalScale(380),
+        width: horizontalScale(330),
+        height: verticalScale(330),
         resizeMode: 'cover',
     },
     trackInfoContainer: {

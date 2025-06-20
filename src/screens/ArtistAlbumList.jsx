@@ -17,6 +17,7 @@ import { formatFollowers} from '../../utils/helpers';
 import { useNavigation } from '@react-navigation/native';
 import LoadingOverlay from '../components/ui/LoadingOverlay';
 import Text from '../components/ui/Text';
+import { horizontalScale, moderateScale, verticalScale } from '../../utils/responsive';
 
 const ArtistAlbumList = ({ route }) => {
   const { artist } = route.params;
@@ -57,11 +58,11 @@ const ArtistAlbumList = ({ route }) => {
     >
       <Image source={{ uri: item.images[0]?.url }} style={styles.albumimage} />
       <View style={styles.trackInfo}>
-        <Text weight='bold' size={15}>{item.name}</Text>
-        <Text size={13}>
+        <Text weight='bold' size={moderateScale(12)}>{item.name}</Text>
+        <Text size={moderateScale(12)}>
           {item.artists.map(artist => artist.name).join(', ')}
         </Text>
-        <Text color='#ccc'>{item.release_date}</Text>
+        <Text color='#ccc' size={12}>{item.release_date}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -86,9 +87,9 @@ const ArtistAlbumList = ({ route }) => {
             />
           </View>
           <View style={styles.albumInfo}>
-            <Text weight='bold' size={20}>Albums by {artist.name}</Text>
+            <Text weight='bold' size={15}>Albums by {artist.name}</Text>
             <View style={{ flexDirection: 'row' }}>
-              <Text  size={16}>
+              <Text  size={moderateScale(14)}>
                 {formatFollowers(artist.followers.total)} Followers
               </Text>
 
@@ -98,7 +99,7 @@ const ArtistAlbumList = ({ route }) => {
                   name={clicked ? 'pause-circle-sharp' : 'play-circle-sharp'}
                   size={50}
                   color="#1DB954"
-                  style={{ marginLeft: 200 }}
+                  style={{ marginLeft: 150 }}
                 />
               </TouchableOpacity>
 
@@ -134,20 +135,21 @@ const ArtistAlbumList = ({ route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingBottom: 80,
+    paddingBottom: 10,
+    
   },
   linearGradient: {
     flex: 1,
   },
   albumimage: {
-    width: 80,
-    height: 80,
+    width: horizontalScale(80),
+    height: verticalScale(80),
     borderRadius: 6,
     marginRight: 12,
   },
   header: {
     marginHorizontal: 20,
-    marginTop: 60,
+    marginTop: 30,
     marginBottom: 10,
   },
   headerIcon: {
@@ -178,7 +180,7 @@ const styles = StyleSheet.create({
   icons: {
     flexDirection: 'row',
     gap: 16,
-    marginTop: 12,
+    
   },
   trackItem: {
     flexDirection: 'row',
