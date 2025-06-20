@@ -23,7 +23,7 @@ export default Header
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        gap: 7,
+        gap: 9,
 
 
     }

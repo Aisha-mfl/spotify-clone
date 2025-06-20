@@ -62,7 +62,8 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#111111',
         paddingHorizontal: horizontalScale(8),
-        paddingVertical:verticalScale(30)
+        //paddingVertical:verticalScale(10),
+        marginVertical:30
     },
     listContent: {
         paddingBottom: verticalScale(10),

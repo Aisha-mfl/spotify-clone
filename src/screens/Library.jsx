@@ -24,7 +24,7 @@ const Library = () => {
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: 'row', gap: 2 }}>
-        {['Playlists', 'Artists', 'Albums', 'shows'].map(tab => (
+        {['Playlists', 'Artists', 'Albums', 'shows & podcast'].map(tab => (
           <IconButton
             key={tab}
             onPress={() => setActivetab(tab)}
@@ -78,7 +78,7 @@ const Library = () => {
           />
         </View>
       )}
-      {activeTab === 'shows' && (
+      {activeTab === 'shows & podcast' && (
         <View style={{ flex: 1 }}>
           <ShowsScreen
             data={shows}
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#111111',
+   
   },
   recnet: {
     flexDirection: 'row',

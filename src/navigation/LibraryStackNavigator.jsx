@@ -22,6 +22,9 @@ const LibraryStackNavigator = () => {
                 fontSize: 24
             },
             headerStyle: { backgroundColor: '#111111'},
+            contentStyle: {
+                backgroundColor: '#111111', 
+            },
             headerTintColor:'white'
 
         }}>

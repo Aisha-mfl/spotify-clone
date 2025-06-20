@@ -17,8 +17,9 @@ import { addFavorite, removefavorite } from '../../store/favorite';
 
 const PlayView = ({ route, navigation }) => {
     const currentTrack = useSelector(state => state.player.currTrack);
-    const activeTrack = currentTrack;
-       console.log('palying',activeTrack);
+    const track = route?.params?.track;
+    const activeTrack = currentTrack || track;
+    //console.log('playing', activeTrack);
     const dispatch = useDispatch();
     const playbackState = usePlaybackState();
     const { position, duration } = useProgress(200);
@@ -26,11 +27,30 @@ const PlayView = ({ route, navigation }) => {
     const songisFav = favSongid.includes(activeTrack);
 
     useEffect(() => {
-        if (route.params?.tracks && Array.isArray(route.params.tracks)) {
-            const trackList = route.params.tracks;
-            const selectedIndex = route.params.index || 0;
-            const currentTrack = trackList[selectedIndex];
-            const artwork = currentTrack.album?.images?.[0]?.url || currentTrack.artwork;
+        if ((route.params?.tracks && Array.isArray(route.params.tracks)) || route.params?.track) {
+            let currentTrack;
+            let selectedIndex = 0;
+            let trackList = [];
+
+            if (Array.isArray(route?.params?.tracks)) {
+                trackList = route.params.tracks;
+                selectedIndex = route.params.index || 0;
+                currentTrack = trackList[selectedIndex];
+            } else if (route?.params?.track) {
+                currentTrack = route.params.track;
+                trackList = [currentTrack]; // fallback list of 1 item
+            }
+
+            if (!currentTrack) {
+                console.warn('No valid track found');
+                return;
+            }
+
+            const artwork =
+                currentTrack?.album?.images?.[0]?.url ||
+                currentTrack?.artwork ||
+                null;
+
             Track({
                 track: currentTrack,
                 index: selectedIndex,
@@ -39,8 +59,8 @@ const PlayView = ({ route, navigation }) => {
                 type: route.params.type || 'song',
             });
         }
-
     }, []);
+
 
     useEffect(() => {
         const listener = TrackPlayer.addEventListener(
@@ -204,6 +224,7 @@ const styles = StyleSheet.create({
     linearGradient: {
         flex: 1,
         paddingHorizontal: 15,
+        paddingVertical: 0
     },
     header: {
         marginTop: 80,

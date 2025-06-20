@@ -29,7 +29,7 @@ const HomeStackNavigator = () => (
     }}>
         <HomeStack.Screen name="home" component={HomeScreen} options={{
             headerShown: true,
-            headerStyle: { backgroundColor: '#111111', },
+            headerStyle: { backgroundColor: '#111111' },
             headerRight: () => {
                 return <Header />
             },

@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setcurrTrack, togglePlay } from '../../../store/Player';
 import TrackPlayer, { Event, State, usePlaybackState, useProgress } from 'react-native-track-player';
 import Text from './Text';
-import { horizontalScale, verticalScale } from '../../../utils/responsive';
+import { horizontalScale, moderateScale, verticalScale } from '../../../utils/responsive';
 
 const PlayBar = () => {
     const navigation = useNavigation();
@@ -65,13 +65,14 @@ const PlayBar = () => {
                                 style={styles.image}
                             />
                             <View style={styles.textContainer}>
-                                <Text size={14} weight='bold' marginV={2}>
+                                <Text size={moderateScale(14)} weight='bold' marginV={2}>
                                     {currentTrack.title}
-                                    <Text size={12} color='#B3B3B3'> • {currentTrack.artist}</Text>
+                                    <Text size={moderateScale(12)} color='#B3B3B3'> • {currentTrack.artist}</Text>
                                 </Text>
                                 <View style={styles.beatsPillContainer}>
                                     <Image style={styles.beatsIcon} source={images.play1} />
-                                    <Text size={11} weight='bold' color='#1DB954'>BEATSPILL+</Text>
+                                    <Text size={moderateScale(11)
+                                    } weight='bold' color='#1DB954'>BEATSPILL+</Text>
                                 </View>
                             </View>
                         </View>
@@ -116,14 +117,15 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignSelf: 'center',
         backgroundColor: '#550A1C',
-        height: horizontalScale(59),
-        width:verticalScale(410),
+        height:verticalScale(59),
+        width: horizontalScale(410),
         borderRadius: 6,
+        paddingVertical:10,
         marginHorizontal: 5,
-        paddingHorizontal: 10,
+        paddingHorizontal: 20,
         marginVertical: -5
     },
-    leftSection: {
+    leftSection: { 
         flexDirection: 'row',
         alignItems: 'center',
         flex: 1,
@@ -146,23 +148,23 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     beatsIcon: {
-        width: 18,
-        height: 18,
+        width: horizontalScale(18),
+        height: verticalScale(18),
     },
     controlIcon: {
         marginLeft: 8,
     },
     sliderBackground: {
-        height: 4,
+        height: horizontalScale(4),
         backgroundColor: '#702F3D',
-        borderRadius: 10,
+        borderRadius: moderateScale(10),
         overflow: 'hidden',
         marginTop: 3,
-        marginHorizontal: 10, 
+        marginHorizontal: 10,
     },
 
     sliderProgress: {
-        height: 4,
+        height: horizontalScale(4),
         backgroundColor: '#e6e9e7',
     }
 

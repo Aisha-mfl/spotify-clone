@@ -14,6 +14,9 @@ const SearchStackNavigation = () => {
             color: 'white',
             fontSize: 24
         },
+        contentStyle: {
+                backgroundColor: '#111111', 
+            },
         
     }}>
             <Stack.Screen name="SearchHome" component={Search} options={{

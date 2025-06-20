@@ -8,7 +8,7 @@ import Text from '../components/ui/Text';
 const SearchBar = ({ navigation }) => {
     const [search, onChangeSearch] = useState('');
     const [result, setResult] = useState([]);
-    const [loading , setLoading] =useState(false);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const delayDebounce = setTimeout(() => {
@@ -31,7 +31,7 @@ const SearchBar = ({ navigation }) => {
         } catch (err) {
             console.log('search failed', err.message);
         }
-        finally{
+        finally {
             setLoading(false);
         }
     };
@@ -44,13 +44,27 @@ const SearchBar = ({ navigation }) => {
                 navigation.navigate('albumlist', { artist: item });
                 break;
             case 'album':
-                navigation.navigate('Playlist', { type: 'album',
-                albumId: item.id,
-                albumName: item.name });
+                navigation.navigate('Playlist', {
+                    type: 'album',
+                    albumId: item.id,
+                    albumName: item.name
+                });
                 break;
             case 'track':
-                navigation.navigate('playView', { track: item });
+                const formattedTrack = {
+                    id: item.id,
+                    title: item.name,
+                    artist: item.artists?.[0]?.name || 'Unknown Artist',
+                    artwork: item.album?.images?.[0]?.url || '',
+                    url: 'https://p.scdn.co/mp3-preview/e2e03acfd38d7cfa2baa924e0e9c7a80f9b49137?cid=8897482848704f2a8f8d7c79726a70d4',
+                    type: 'song',
+                    album: item.album?.name,
+                };
+                console.log('track',formattedTrack);
+                
+                navigation.navigate('playView', { track: formattedTrack });
                 break;
+                
             default:
                 console.warn('Unknown item type:', item.type);
         }
@@ -161,5 +175,5 @@ const styles = StyleSheet.create({
     textContainer: {
         flexDirection: 'column',
     },
- 
+
 });

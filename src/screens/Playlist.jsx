@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { togglePlay, currTrack } from '../../store/Player';
 import { msToMinutes } from '../../utils/helpers';
 import Text from '../components/ui/Text';
-import { horizontalScale, verticalScale } from '../../utils/responsive';
+import { horizontalScale, moderateScale, verticalScale } from '../../utils/responsive';
 import { Track } from '../models/Tracks';
 import { images } from '../assets/images';
 
@@ -162,7 +162,7 @@ const Playlist = ({ route, navigation }) => {
                   name={clicked ? 'pause-circle-sharp' : 'play-circle-sharp'}
                   size={50}
                   color="#1DB954"
-                  style={{ marginLeft: 220 }}
+                  style={{ marginLeft: moderateScale(220) }}
                 />
               </TouchableOpacity>
 

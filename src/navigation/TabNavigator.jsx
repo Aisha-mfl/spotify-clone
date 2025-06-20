@@ -15,8 +15,8 @@ const Tabnavigator = () => {
             screenOptions={({ route }) => ({
                 headerShown: true,
                 tabBarActiveTintColor: '#ffffff',
-                tabBarInactiveTintColor: '#030303',
-                tabBarStyle: { backgroundColor: '#121212' },
+                tabBarInactiveTintColor: '#111111',
+                tabBarStyle: { backgroundColor: '#111111' },
                 tabBarLabelStyle: { fontSize: 13, color: 'white' },
 
                 tabBarIcon: ({ size, focused }) => {
